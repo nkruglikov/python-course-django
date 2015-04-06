@@ -5,6 +5,11 @@
 	</head>
 
 	<body>
+		<div id="header">
+			<a href="/">Forum</a>
+			{% block menu %}
+			{% endblock %}
+		</div>
 		{% block content %}
 		{% endblock %}
 	</body>
