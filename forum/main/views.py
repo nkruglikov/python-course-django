@@ -43,7 +43,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect("/forum")
+    return HttpResponseRedirect("/")
 
 def forum(request):
     messages = Message.objects.all()
