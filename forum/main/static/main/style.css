@@ -1,0 +1,14 @@
+#header {
+	background-color: lightgreen;
+	margin: 10px;
+}
+
+#header a {
+	text-decoration: none;
+	color: darkgreen;
+}
+
+#header a:hover {
+	background-color: green;
+	color: lightgreen;
+}

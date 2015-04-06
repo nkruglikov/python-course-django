@@ -1,12 +1,15 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Forum | {% block title %}{% endblock %}</title>
+		<link rel="stylesheet" type="text/css"
+			href="{% static 'main/style.css' %}" />
 	</head>
 
 	<body>
 		<div id="header">
-			<a href="/">Forum</a>
+			<a href="/"><strong>Forum</strong></a>
 			{% block menu %}
 			{% endblock %}
 		</div>
