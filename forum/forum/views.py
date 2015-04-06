@@ -12,7 +12,7 @@ def register(request):
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         if User.objects.filter(username=username):
-            return render(request, 'register.html',
+            return render(request, 'main/register.html',
                     {'errors': 'This username is already taken'})
 
         user = User.objects.create_user(username=username, password=password)
@@ -24,7 +24,7 @@ def register(request):
 
         return render(request, str(user))
     else:
-        return render(request, 'register.html')
+        return render(request, 'main/register.html')
 
 def login(request):
     if request.method == 'POST':
@@ -37,9 +37,9 @@ def login(request):
             # Redirect to a success page.
             return HttpResponseRedirect("/forum")
         else:
-            return render(request, 'login.html', {'errors': 'Wrong login or username'})
+            return render(request, 'main/login.html', {'errors': 'Wrong login or username'})
     else:
-        return render(request, 'login.html')
+        return render(request, 'main/login.html')
 
 def logout(request):
     auth.logout(request)
@@ -47,7 +47,7 @@ def logout(request):
 
 def forum(request):
     messages = Message.objects.all()
-    return render(request, 'forum.html', {'messages': messages})
+    return render(request, 'main/forum.html', {'messages': messages})
 
 def index(request):
 	if request.user.is_authenticated():
