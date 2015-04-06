@@ -1,17 +1,20 @@
-<html>
-<body>
- {% if errors %}
- <p class="error">{{ errors }}</p>
-  {% endif %}
+{% extends "main/base.html" %}
 
-  <form action="" method="post">
-    <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
+{% block title %}Login{% endblock %}
 
-    <input type="submit" value="login" />
-  </form>
-  or <a href="/register">register</a>.
-</body>
-</html>
+{% block content %}
+	{% if errors %}
+		<p class="error">{{ errors }}</p>
+	{% endif %}
+
+	<form action="" method="post">
+		<label for="username">User name:</label>
+		<input type="text" name="username" value="" id="username">
+		<label for="password">Password:</label>
+		<input type="password" name="password" value="" id="password">
+
+		<input type="submit" value="login" />
+	</form>
+	or <a href="/register">register</a>.
+
+{% endblock %}
