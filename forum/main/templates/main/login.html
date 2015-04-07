@@ -1,23 +1,7 @@
-{% extends "main/base.html" %}
+{% extends "main/base_auth.html" %}
 
 {% block title %}Login{% endblock %}
 
 {% block menu %}
 	<a href="/register">register</a>
-{% endblock %}
-
-{% block content %}
-	{% if errors %}
-		<p class="error">{{ errors }}</p>
-	{% endif %}
-
-	<form action="" method="post">
-		<label for="username">User name:</label>
-		<input type="text" name="username" value="" id="username">
-		<label for="password">Password:</label>
-		<input type="password" name="password" value="" id="password">
-
-		<input type="submit" value="login" />
-	</form>
-
 {% endblock %}

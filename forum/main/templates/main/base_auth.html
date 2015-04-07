@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+	{% block creditinals %}
+	{% if errors %}
+		<p class="error">{{ errors }}</p>
+	{% endif %}
+
+	<div id="creditinals">
+		<form action="" method="post">
+			<label for="username">User name:</label>
+			<input type="text" name="username" value="" id="username">
+			<label for="password">Password:</label>
+			<input type="password" name="password" value="" id="password">
+
+			<input type="submit" value="login" />
+		</form>
+	</div>
+	{% endblock creditinals %}
+{% endblock content %}
