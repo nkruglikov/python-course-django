@@ -20,13 +20,14 @@
 	{% for message in messages %}
 	<ul>
 		<li>
-			{{ message.text|upper }}
+			{{ message.text }}
 		</li>
 	</ul>
 	{% endfor %}
 
-	<p>
-		This is a forum template.
-	</p>
+	<form action="" method="post">
+		<textarea name="message"></textarea>
+		<input type="submit" value="Send" />
+	</form>
 
 {% endblock %}

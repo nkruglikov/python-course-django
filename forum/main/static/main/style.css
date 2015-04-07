@@ -19,7 +19,6 @@ div, ul, h1, p {
 
 #menu {
 	float: right;
-
 }
 
 #creditinals {
@@ -27,7 +26,7 @@ div, ul, h1, p {
 	width: 200px;
 }
 
-#creditinals label, input {
+#creditinals label, #creditinals input {
 	margin: 2px auto;
 	display: block;
 	width: auto;

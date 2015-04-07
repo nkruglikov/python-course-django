@@ -46,8 +46,12 @@ def logout(request):
     return HttpResponseRedirect("/")
 
 def forum(request):
-    messages = Message.objects.all()
-    return render(request, 'main/forum.html', {'messages': messages})
+	if request.method == 'POST':
+		message = Message(text=request.POST['message'])
+		message.save()
+		return HttpResponseRedirect("/forum") # Helps refreshing
+	messages = Message.objects.all()
+	return render(request, 'main/forum.html', {'messages': messages})
 
 def index(request):
 	if request.user.is_authenticated():
