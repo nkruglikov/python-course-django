@@ -4,30 +4,30 @@
 
 {% block menu %}
 	{% if user.is_authenticated %}
+		<p>[{{ user }}]</p>
 		<a href="/logout">logout</a>
 	{% else %}
 		<a href="/login">login</a>
+		<a href="/register">register</a>
 	{% endif %}
 {% endblock %}
 
 {% block content %}
-	{% if user.is_authenticated %}
-		<p>You are logged in as {{ user }}.</p>
-	{% else %}
-		<p>You are anonymous.</p>
-	{% endif %}
 
+	<div id="message_box">
 	{% for message in messages %}
-	<ul>
-		<li>
+		<div class="message">
 			{{ message.text }}
-		</li>
-	</ul>
+		</div>
 	{% endfor %}
 
-	<form action="" method="post">
-		<textarea name="message"></textarea>
-		<input type="submit" value="Send" />
-	</form>
+	{% if user.is_authenticated %}
+		<form action="" method="post">
+			<textarea name="message" id="message_input"></textarea>
+			<input type="submit" value="Send" id="message_send_button" />
+		</form>
+	{% endif %}
+	</div>
+
 
 {% endblock %}
