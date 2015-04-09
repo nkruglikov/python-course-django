@@ -1,11 +1,15 @@
 {% extends "main/base.html" %}
 
 {% block content %}
-	{% block creditinals %}
 	{% if errors %}
 		<p class="error">{{ errors }}</p>
 	{% endif %}
 
+	<h1 id="title_block">
+		{% block title %}{% endblock %}
+	</h1>
+
+	{% block creditinals %}
 	<div id="creditinals">
 		<form action="" method="post">
 			<label for="username">User name:</label>

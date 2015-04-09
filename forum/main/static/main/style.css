@@ -22,8 +22,21 @@ div, ul, h1, p, a {
 	float: right;
 }
 
+.error {
+	background-color: lightsalmon;
+	margin: 10px auto;
+	width: 70%;
+	padding: 4px;
+	text-align: center;
+}
+
+#title_block {
+	text-align: center;
+	font-family: sans-serif;
+}
+
 #creditinals {
-	margin: 10% auto;
+	margin: 10px auto;
 	width: 200px;
 }
 

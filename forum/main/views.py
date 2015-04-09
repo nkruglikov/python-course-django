@@ -12,9 +12,20 @@ def register(request):
     if request.method == 'POST':
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
+
         if User.objects.filter(username=username):
             return render(request, 'main/register.html',
                     {'errors': 'This username is already taken'})
+
+        elif len(username) < 3:
+            return render(request, 'main/register.html',
+                    {'errors': 'User name should contain at least'
+                        ' 3 characters'})
+
+        elif len(password) < 3:
+            return render(request, 'main/register.html',
+                    {'errors': 'Password should contain at least'
+                        ' 3 characters'})
 
         user = User.objects.create_user(username=username, password=password)
 
@@ -38,7 +49,8 @@ def login(request):
             # Redirect to a success page.
             return HttpResponseRedirect("/forum")
         else:
-            return render(request, 'main/login.html', {'errors': 'Wrong login or username'})
+            return render(request, 'main/login.html',
+                    {'errors': 'Wrong user name or password'})
     else:
         return render(request, 'main/login.html')
 
@@ -47,18 +59,18 @@ def logout(request):
     return HttpResponseRedirect("/")
 
 def forum(request):
-	if request.method == 'POST':
-		message = Message(
-				text=request.POST['message'],
-				author=request.user,
-				date=timezone.now())
-		message.save()
-		return HttpResponseRedirect("/forum") # Helps refreshing
-	messages = Message.objects.all()
-	return render(request, 'main/forum.html', {'messages': messages})
+    if request.method == 'POST':
+        message = Message(
+                text=request.POST['message'],
+                author=request.user,
+                date=timezone.now())
+        message.save()
+        return HttpResponseRedirect("/forum") # Helps refreshing
+    messages = Message.objects.all()
+    return render(request, 'main/forum.html', {'messages': messages})
 
 def index(request):
-	if request.user.is_authenticated():
-		return HttpResponseRedirect("/forum")
-	else:
-		return HttpResponseRedirect("/login")
+    if request.user.is_authenticated():
+        return HttpResponseRedirect("/forum")
+    else:
+        return HttpResponseRedirect("/login")
