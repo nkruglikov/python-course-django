@@ -63,6 +63,11 @@ div, ul, h1, p, a {
 	padding: 10px;
 }
 
+.message p {
+	margin-bottom: 0.5em;
+	word-wrap: break-word;
+}
+
 .message_header {
 	background-color: lightgreen;
 	margin: 10px 0 0 0;
@@ -86,4 +91,5 @@ div, ul, h1, p, a {
 	float: right;
 	position: relative;
 	right: 5%;
+	margin-bottom: 10px;
 }
