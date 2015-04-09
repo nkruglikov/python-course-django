@@ -3,7 +3,7 @@ div, ul, h1, p, a {
 }
 
 #header {
-	background-color: lightgreen;
+	background-color: #68E068;
 	margin: 10px 0px;
 }
 
@@ -38,13 +38,23 @@ div, ul, h1, p, a {
 	margin: 0 auto;
 }
 
-.message {
-	min-height: 50px;
-	margin: 10px 0;
-	padding: 10px;
-	background-color: #BDF8BD;
+.message, .message_header {
 	font-family: sans-serif;
 	font-size: 1em;
+}
+
+.message {
+	background-color: #BDF8BD;
+	min-height: 50px;
+	margin: 0 0 10px 0;
+	padding: 10px;
+}
+
+.message_header {
+	background-color: lightgreen;
+	margin: 10px 0 0 0;
+	padding: 2px;
+	color: darkgreen;
 }
 
 #message_input {

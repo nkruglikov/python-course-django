@@ -16,8 +16,12 @@
 
 	<div id="message_box">
 	{% for message in messages %}
+		<div class="message_header">
+			{{ message.author }},
+			{{ message.date | date:"H:i, j/m" }}
+		</div>
 		<div class="message">
-			{{ message.text }}
+			{{ message.text | linebreaks }}
 		</div>
 	{% endfor %}
 

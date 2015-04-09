@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.utils import timezone
 
 from main.models import Message
 
@@ -47,7 +48,10 @@ def logout(request):
 
 def forum(request):
 	if request.method == 'POST':
-		message = Message(text=request.POST['message'])
+		message = Message(
+				text=request.POST['message'],
+				author=request.user,
+				date=timezone.now())
 		message.save()
 		return HttpResponseRedirect("/forum") # Helps refreshing
 	messages = Message.objects.all()
